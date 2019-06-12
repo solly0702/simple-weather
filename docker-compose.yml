@@ -1,0 +1,13 @@
+version: "3"
+services:
+  webapp:
+    build:
+      dockerfile: $PWD/docker/Dockerfile
+      context: ./app
+    volumes:
+      - /app/node_modules
+      - ./app:/app
+    env_file:
+      - ./app/.env
+    ports:
+      - "80:3000"
